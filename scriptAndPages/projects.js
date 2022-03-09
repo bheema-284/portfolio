@@ -96,8 +96,7 @@ as soaps, moisturizers etc.</a></p>
 
                         <br>
                         <div class="techStackProject">
-                            <p> <i class="fab fa-js-square"></i> JavaScript </p>
-                            
+                            <p> <i class="fab fa-js-square"></i> JavaScript </p>                            
                             <p><i class="fab fa-html5"></i> HTML</p>
                             <p><i class="fab fa-css3-alt"></i> CSS</p>
                           
@@ -115,5 +114,42 @@ as soaps, moisturizers etc.</a></p>
             </div>
             
 
+<!-- GitHub Repo Searching project -->
+            <div class="eachProjectDiv">
+                <p class="ProjectName">GitHub Repo Searching Mini Project</p>
+                <div class="ProjectContainer">
+                    <div class="ProjectImage">
+                        <img src="./images/minigithub.PNG" alt="" />
+                    </div>
+                    <div class="projectDescription">
+                        <p>GitHub Repo Searching Website was a mini project through this project I was learning making API call. </p>
+                        <p>This peoject is designed using HTML, CSS, JavaScript and Advance JavaScript</p>
+                        <br />
+                        <p> 
+                        </p>
+                        <br>
+                        <u style="text-decoration: underline;">TechStack :- </u>
+                        <br>
+
+                        <br>
+                        <div class="techStackProject">
+                            <p> <i class="fab fa-js-square"></i> JavaScript </p>
+                            <p> <i class="fab fa-js-square"></i> ES6 </p>
+                            <p><i class="fab fa-html5"></i> HTML</p>
+                            <p><i class="fab fa-css3-alt"></i> CSS</p>
+                          
+                        </div>
+                        <div class="ProjectLinks">
+                            <a href="https://github.com/bheema-284/minigit/tree/main/Assignment/day5"
+                                target="blank"><button>
+                                    Github</button></a>
+                            <a href="https://bheemasminigithub.netlify.app/" target="blank"><button>Demo</button></a>
+                            <a "#" target="blank"><button>Blog</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 
 `;
