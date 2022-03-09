@@ -7,7 +7,7 @@ I am Bheemudu Guguloth from Hyderabad, Telangana. Skilled in Full Stack Developm
 - Though I hold Bachelor's degree in Civil Engineering, I aspire to work as a programmer.<br/>
 - A MERN stack developer, equipped with a diverse and promising skill-set.
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=bheema-284&label=Profile%20views&color=0e75b6&style=flat" alt="KrishnaKumarKeshri96" /> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=bheema-284&label=Profile%20views&color=0e75b6&style=flat" alt="bheema" /> </p>
 
 - 🌱 I’m currently learning **Data Structures and Algorithms.**
 
@@ -28,7 +28,7 @@ I am Bheemudu Guguloth from Hyderabad, Telangana. Skilled in Full Stack Developm
 
 ## 🔗 Links
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://portfolio-nine-khaki.vercel.app/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://portfolio-bheema.vercel.app/)
 
 <h2 align="left">🛠 Languages and Tools:</h2>
 <p align="center">
