@@ -9,7 +9,7 @@ about.innerHTML = `
                         style="border-radius: 300px; background-color: rgba(146, 139, 139, 0.068);">
                 </div>
                 <div class="column right">
-                    <div class="text">I'm Bheemudu and I'm a <span class="typing-2"></span></div>
+                    <div class="text">I'm Bheemudu Guguloth and I'm a <br/><span class="typing-2"></span></div>
                     <p>A hard-working and goal-oriented Full-Stack Web Developer. Excellent team
                     player, problem solver and continuous learner with the ability to find solutions. Looking forward
                     to gain the highest learning possibilities in the career.

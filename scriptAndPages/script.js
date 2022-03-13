@@ -4,7 +4,7 @@ $(document).ready(function () {
     if (this.scrollY > 20) {
       $('.navbar').addClass('sticky');
       document.getElementById('partOneName').innerText = null;
-      document.getElementById('userName').innerText = 'Bheemudu ';
+      document.getElementById('userName').innerText = 'Bheemudu';
     } else {
       $('.navbar').removeClass('sticky');
       document.getElementById('partOneName').innerText = null;
