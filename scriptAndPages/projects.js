@@ -8,13 +8,10 @@ projectsSection.innerHTML = `
                         <img src="./images/dunzo1.PNG" alt="" />
                     </div>
                     <div class="projectDescription">
-                        <p>Dunzo is an Indian company that delivers groceries and essentials, food, fruits and vegetables. It also has local courier service to send packages within the city. For more information go to https://www.dunzo.com/.</a></p>
+                        <p>Dunzo is an Indian company that delivers groceries and essentials, food, fruits and vegetables. It also has local courier service to send packages within the city. For more information go to https://www.dunzo.com
+</a></p>
                        
-                        <br />
-                        <p>
-                            We a team of 6 have build dunzo project in 5 days, where I have
-                            developed the "Groceries & Essentials", backend of "groceries & restaurants home" pages and "footer" pages.
-                        </p>
+                        <br />                       
                         <br>
                         <u style="text-decoration: underline;">TechStack :- </u>
                         <br>
@@ -46,15 +43,11 @@ projectsSection.innerHTML = `
                         <img src="./images/bathandbody.PNG" alt="" />
                     </div>
                     <div class="projectDescription">
-                        <p>bath and body works website is  to order body and bath essentials such
-as soaps, moisturizers etc.</a></p>
+                        <p>Bath and body works website is to order body and bath essentials such as soaps, moisturizers etc. For more information go to https://www.bathandbodyworks.com
+
+</a></p>
                        
-                        <br />
-                        <p>
-                            We a team of 4 have build bath and body works project in 5 days, where I have
-                            developed the header , Signup/Login , footer and homepage of hand soaps pages of the
-                            website.
-                        </p>
+                        <br />                        
                         <br>
                         <u style="text-decoration: underline;">TechStack :- </u>
                         <br>
@@ -82,7 +75,7 @@ as soaps, moisturizers etc.</a></p>
                 <p class="ProjectName">Recipe Searching Mini Project</p>
                 <div class="ProjectContainer">
                     <div class="ProjectImage">
-                        <img src="./images/recipe.PNG" alt="" />
+                        <img src="./images/recipe1.PNG" alt="" />
                     </div>
                     <div class="projectDescription">
                         <p>Recipe Searching Website was a mini project through this project I was learning making API call. </p>
@@ -102,10 +95,10 @@ as soaps, moisturizers etc.</a></p>
                           
                         </div>
                         <div class="ProjectLinks">
-                            <a href="https://github.com/bheema-284/Recipies"
+                            <a href="https://github.com/bheema-284/recipe_search"
                                 target="blank"><button>
                                     Github</button></a>
-                            <a href="https://condescending-jackson-8f0172.netlify.app/" target="blank"><button>Demo</button></a>
+                            <a href="https://recipe-search-phi.vercel.app/" target="blank"><button>Demo</button></a>
                             <a "#" target="blank"><button>Blog</button></a>
 
                         </div>
