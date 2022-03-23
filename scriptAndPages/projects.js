@@ -79,7 +79,7 @@ projectsSection.innerHTML = `
                     </div>
                     <div class="projectDescription">
                         <p>Recipe Searching Website was a mini project through this project I was learning making API call. </p>
-                        <p>This peoject is designed using HTML, CSS and JavaScript</p>
+                        <p>This project is designed using HTML, CSS and JavaScript</p>
                         <br />
                         <p> 
                         </p>
