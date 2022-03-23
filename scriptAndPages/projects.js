@@ -99,8 +99,8 @@ projectsSection.innerHTML = `
                                 target="blank"><button>
                                     Github</button></a>
                             <a href="https://recipe-search-phi.vercel.app/" target="blank"><button>Demo</button></a>
-                            <a "#" target="blank"><button>Blog</button></a>
-
+                           
+<a href="https://medium.com/@bheemudug/search-recipes-app-6d5407d192e8" target="blank"><button>Blog</button></a>
                         </div>
                     </div>
                 </div>
@@ -137,8 +137,8 @@ projectsSection.innerHTML = `
                                 target="blank"><button>
                                     Github</button></a>
                             <a href="https://bheemasminigithub.netlify.app/" target="blank"><button>Demo</button></a>
-                            <a "#" target="blank"><button>Blog</button></a>
-
+                           
+ <a href="https://medium.com/@bheemudug/mini-github-app-efb91027e147" target="blank"><button>Blog</button></a>
                         </div>
                     </div>
                 </div>
