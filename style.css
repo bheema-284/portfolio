@@ -674,3 +674,6 @@ footer span a:hover {
     grid-template-columns: 90%;
   }
 }
+.email{
+  color: #111;
+}
