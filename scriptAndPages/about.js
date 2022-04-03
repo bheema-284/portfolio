@@ -28,7 +28,7 @@ about.innerHTML = `
                     <p class="iconsAboutSection"> <i class="fas fa-phone"></i> +91-9000133416 , +91-8309819073</p>
                     <p class="iconsAboutSection"><i class="fas fa-envelope"></i> <a cl href="mailto:bheemudug@gmail.com.com" target="_blank" rel="noreferrer" >
             <CgMail class="email" />bheemudug@gmail.com</a></p>
-                    <a href = "https://drive.google.com/file/d/1KdyFX-X5DQ1yTpAsCS8ccQCx8luGzm16/view?usp=sharing"
+                    <a href = "https://drive.google.com/file/d/1wEuejYUOcyLIZOBg5J19lgsbmpF1oI3y/view?usp=sharing"
                         target="blank" class="resumeToDrive">Resume</a>
                 </div>
             </div>
