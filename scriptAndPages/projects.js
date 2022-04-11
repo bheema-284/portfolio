@@ -10,7 +10,7 @@ projectsSection.innerHTML = `
                     </div>
                     <div class="projectDescription">
                         <p>Cricbuzz is an Indian cricket news website owned by Times Internet. It features, news, articles and live coverage of cricket matches including videos, text commentary, player stats and team rankings.  </p>
-                        <p>This peoject is designed using HTML, CSS, JavaScript and Advance JavaScript</p>
+                        
                         <br />
                         <p> 
                         </p>
