@@ -508,9 +508,13 @@ section .title::after {
   background: none;
 }
 
-.socialMediaLinksToPage {
-  text-decoration: underline;
+.socialMediaLinksToPage { 
   color: #333;
+}
+
+.socialMediaLinksToPage:hover {
+  text-decoration: underline;
+  color: rgb(15, 94, 231);;
 }
 
 /* footer section styling */
@@ -675,5 +679,10 @@ footer span a:hover {
   }
 }
 .email{
-  color: #111;
+  color: #111;  
+}
+
+.email:hover{
+  color: rgb(15, 94, 231);
+  text-decoration: underline;
 }
