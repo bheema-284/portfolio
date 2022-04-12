@@ -26,10 +26,10 @@ about.innerHTML = `
                         </a>
                     </div>
                     <p class="iconsAboutSection">
-                     <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1ruq0vk" tabindex="0" href="tel:+91 9000133416" title="Tellphone">
+                     <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1ruq0vk" tabindex="0" href="tel:+91 8309819073" title="Tellphone">
       <i class="fas fa-phone"></i>
     <span class="MuiTouchRipple-root css-w0pj6f"></span></a>
-                     </i> <a class="email" class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1ruq0vk" tabindex="0" href="tel:+91 8309819073" title="Tellphone">
+                     </i> <a class="email" class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1ruq0vk" tabindex="0" href="tel:+91 9000133416" title="Tellphone">
      +91-9000133416
     <span class="MuiTouchRipple-root css-w0pj6f"></span></a> 
                                     , 
