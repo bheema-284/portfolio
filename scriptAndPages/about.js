@@ -25,8 +25,16 @@ about.innerHTML = `
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
-                    <p class="iconsAboutSection"> <i class="fas fa-phone"></i> +91-9000133416 , +91-8309819073</p>
-                    <p class="iconsAboutSection"><i class="fas fa-envelope"></i> <a cl href="mailto:bheemudug@gmail.com.com" target="_blank" rel="noreferrer" >
+                    <p class="iconsAboutSection">
+                     <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1ruq0vk" tabindex="0" href="tel:8309819073" title="Tellphone">
+      <i class="fas fa-phone"></i>
+    <span class="MuiTouchRipple-root css-w0pj6f"></span></a>
+                     </i> +91-9000133416 , +91-8309819073</p>
+                    <p class="iconsAboutSection">
+                    
+                    <a cl href="mailto:bheemudug@gmail.com.com" target="_blank" rel="noreferrer" >
+            <CgMail class="email" /><i class="fas fa-envelope"></i> </a>
+                    <a cl href="mailto:bheemudug@gmail.com.com" target="_blank" rel="noreferrer" >
             <CgMail class="email" />bheemudug@gmail.com</a></p>
                     <a href = "https://drive.google.com/file/d/1PGEf6f_Vq_TdBDmg_Q6F5o-_qR9CUxg0/view?usp=sharing"
                         target="blank" class="resumeToDrive">Resume</a>
