@@ -42,7 +42,7 @@ about.innerHTML = `
             <CgMail class="email" /><i class="fas fa-envelope"></i> </a>
                     <a cl href="mailto:bheemudug@gmail.com.com" target="_blank" rel="noreferrer" >
             <CgMail class="email" />bheemudug@gmail.com</a></p>
-                    <a href = "https://drive.google.com/file/d/1mbA8JXiYGFaZjiNliX83uuoZ1MAQSIA1/view?usp=drivesdk"
+                    <a href = "https://drive.google.com/drive/u/0/folders/1BQvEZFkjjqYxa0Wk-7a_ZIBdnPhFMpux"
                         target="blank" class="resumeToDrive">Resume</a>
                 </div>
             </div>
