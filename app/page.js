@@ -70,7 +70,7 @@ export default function Home() {
           <div className="absolute hidden sm:block left-4 md:left-1/2 top-0 h-full w-0.5 bg-blue-300 transform -translate-x-1/2"></div>
           {workExperience.map((item, index) => (
             <div key={index} className={`mb-12 relative flex items-stretch ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-              <div className="absolute hidden sm:block left-4 md:left-1/2 top-6 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2 border-4 border-white z-10"></div>
+              <div className="absolute hidden sm:block left-4 md:left-1/2 top-4.5 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2 border-4 border-white z-10"></div>
               <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} flex`}>
                 <GlowCard className="w-full">
                   <div className="p-6 text-center">
