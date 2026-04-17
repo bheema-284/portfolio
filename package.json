@@ -9,8 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.10",
+    "dayjs": "^1.11.20",
+    "dom-to-image": "^2.6.0",
+    "framer-motion": "^12.38.0",
+    "fs": "^0.0.1-security",
+    "joi": "^18.1.2",
     "lucide-react": "^1.8.0",
+    "mongodb": "^7.1.1",
     "next": "v16.0.10",
+    "nodemailer": "^8.0.5",
+    "path": "^0.12.7",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

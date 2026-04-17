@@ -23,4 +23,288 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+section,
+div.h-screen {
+  scroll-snap-align: start;
+}
+
+/* CRITICAL FIX: Override all Tailwind oklch colors with standard HEX colors */
+/* This ensures html2canvas can parse all colors correctly */
+
+/* Text Colors */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-black {
+  color: #000000 !important;
+}
+
+.text-gray-300 {
+  color: #d1d5db !important;
+}
+
+.text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.text-gray-700 {
+  color: #374151 !important;
+}
+
+.text-yellow-400 {
+  color: #facc15 !important;
+}
+
+.text-yellow-500 {
+  color: #eab308 !important;
+}
+
+.text-yellow-600 {
+  color: #ca8a04 !important;
+}
+
+.text-amber-400 {
+  color: #fbbf24 !important;
+}
+
+.text-amber-500 {
+  color: #f59e0b !important;
+}
+
+.text-blue-500 {
+  color: #3b82f6 !important;
+}
+
+.text-blue-600 {
+  color: #2563eb !important;
+}
+
+.text-red-500 {
+  color: #ef4444 !important;
+}
+
+/* Background Colors */
+.bg-\[\#24263B\] {
+  background-color: #24263B !important;
+}
+
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.bg-black {
+  background-color: #000000 !important;
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6 !important;
+}
+
+.bg-gray-700 {
+  background-color: #374151 !important;
+}
+
+.bg-gray-800 {
+  background-color: #1f2937 !important;
+}
+
+.bg-gray-900 {
+  background-color: #111827 !important;
+}
+
+.bg-yellow-500 {
+  background-color: #eab308 !important;
+}
+
+.bg-yellow-600 {
+  background-color: #ca8a04 !important;
+}
+
+.bg-yellow-900 {
+  background-color: #713f12 !important;
+}
+
+.bg-blue-600 {
+  background-color: #2563eb !important;
+}
+
+.bg-red-500 {
+  background-color: #ef4444 !important;
+}
+
+/* Background with opacity */
+.bg-yellow-900\/20 {
+  background-color: rgba(113, 63, 18, 0.2) !important;
+}
+
+.bg-yellow-900\/30 {
+  background-color: rgba(113, 63, 18, 0.3) !important;
+}
+
+.bg-gray-700\/50 {
+  background-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+.bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Border Colors */
+.border-gray-300 {
+  border-color: #d1d5db !important;
+}
+
+.border-gray-600 {
+  border-color: #4b5563 !important;
+}
+
+.border-gray-700 {
+  border-color: #374151 !important;
+}
+
+.border-yellow-500 {
+  border-color: #eab308 !important;
+}
+
+/* Gradient Fixes */
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)) !important;
+}
+
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-from), var(--tw-gradient-to)) !important;
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-from), var(--tw-gradient-to)) !important;
+}
+
+.from-gray-600 {
+  --tw-gradient-from: #4b5563 !important;
+}
+
+.from-gray-700 {
+  --tw-gradient-from: #374151 !important;
+}
+
+.from-transparent {
+  --tw-gradient-from: transparent !important;
+}
+
+.to-yellow-300 {
+  --tw-gradient-to: #fde047 !important;
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent !important;
+}
+
+/* Shadow Colors */
+.shadow-yellow-500\/30 {
+  --tw-shadow-color: rgba(234, 179, 8, 0.3) !important;
+}
+
+/* PDF Capture Mode - Force standard colors during screenshot */
+.pdf-capture-mode,
+.pdf-capture-mode * {
+  color: #ffffff !important;
+  background-color: #24263B !important;
+  border-color: #374151 !important;
+}
+
+.pdf-capture-mode .text-yellow-500,
+.pdf-capture-mode .text-amber-400,
+.pdf-capture-mode .text-yellow-400 {
+  color: #facc15 !important;
+}
+
+.pdf-capture-mode .bg-yellow-500 {
+  background-color: #eab308 !important;
+}
+
+.pdf-capture-mode .bg-yellow-900 {
+  background-color: #713f12 !important;
+}
+
+/* Ensure gradients use standard colors during PDF capture */
+.pdf-capture-mode .bg-gradient-to-r {
+  background: linear-gradient(to right, #4b5563, #fde047) !important;
+}
+
+.pdf-capture-mode .bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(55, 65, 81, 0.5), transparent) !important;
+}
+
+.pdf-capture-mode .bg-gradient-to-b {
+  background: linear-gradient(to bottom, transparent, #111827) !important;
+}
+
+/* Ensure all sections have proper IDs and are selectable */
+section {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Improve PDF capture quality */
+.pdf-capture-mode {
+  position: relative;
+  z-index: 10000;
+}
+
+.pdf-capture-mode section {
+  border: 1px solid transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+section#\/ {
+  overflow-x: hidden;
+}
+
+@theme {
+  /* Custom colors */
+  --color-navy-900: #0B1A2E;
+  --color-navy-800: #1C2C46;
+  --color-navy-700: #2A3A5C;
+  --color-brand-green: #10B981;
+  --color-brand-amber: #F59E0B;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-800;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
 }
