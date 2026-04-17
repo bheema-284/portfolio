@@ -50,7 +50,6 @@ const GlowCard = ({ children, className = "", fixedHeight = false }) => {
 };
 
 export default function Home() {
-  const { setRootContext } = useContext(RootContext);
   const [serviceCall, setServiceCall] = useState(false);
 
   // --- Tab Bar State & Refs (identical to project details page) ---
@@ -67,20 +66,20 @@ export default function Home() {
 
   const sections = [
     { id: "about", label: "About" },
-    { id: "positioning", label: "Positioning" },
-    { id: "journey", label: "Journey" },
+    { id: "skills", label: "Skills" },
+    { id: "experience", label: "Experience" },
     { id: "companies", label: "Companies" },
     { id: "projects", label: "Projects" },
-    { id: "education", label: "Education" },
-    { id: "contact", label: "Contact" },
+    { id: "education", label: "Education & Credentials" },
+    { id: "contact", label: "Let's Connect" },
   ];
 
   // Helper: Get icon for section tile (fallback to Lightbulb)
   const getSectionIcon = (id) => {
     const icons = {
       about: <User size={28} />,
-      positioning: <Target size={28} />,
-      journey: <Plane size={28} />,
+      skills: <Target size={28} />,
+      experience: <Plane size={28} />,
       companies: <FolderGit2 size={28} />,
       projects: <BarChart3 size={28} />,
       education: <Award size={28} />,
@@ -281,9 +280,9 @@ export default function Home() {
     </div>
   );
 
-  const renderPositioningSection = () => (
-    <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-4 w-full mx-auto">
-      {pageData.positioning.points.map((point, index) => (
+  const renderSkillsSection = () => (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto">
+      {pageData.skills.points.map((point, index) => (
         <GlowCard key={index} className="h-full" fixedHeight={true}>
           <div className="text-center p-6 h-full flex flex-col backdrop-blur-sm">
             <div className="flex justify-center mb-4">{point.icon}</div>
@@ -295,10 +294,10 @@ export default function Home() {
     </div>
   );
 
-  const renderJourneySection = () => (
+  const renderExpSection = () => (
     <div className="relative w-[80%] mx-auto">
       <div className="absolute hidden sm:block left-4 md:left-1/2 top-0 h-full w-0.5 bg-green-700 transform -translate-x-1/2"></div>
-      {pageData.journey.timeline.map((item, index) => (
+      {pageData.experience.timeline.map((item, index) => (
         <div key={index} className={`mb-12 relative flex items-stretch ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
           <div className="absolute hidden sm:block left-4 md:left-1/2 top-4.5 w-4 h-4 rounded-full bg-green-500 transform -translate-x-1/2 border-4 border-gray-600 z-10"></div>
           <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} flex`}>
@@ -402,7 +401,8 @@ export default function Home() {
     </div>
   );
 
-  const renderContactSection = () => {
+  const ContactSection = () => {
+    const { setRootContext } = useContext(RootContext);
     const [contact, setContact] = useState({
       name: "",
       company_name: "",
@@ -411,12 +411,11 @@ export default function Home() {
       message: "",
     });
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const onValuesChange = (e, key) => {
-      setContact((prev) => ({ ...prev, [key]: e.target.value }));
-      if (errors[key]) {
-        setErrors((prev) => ({ ...prev, [key]: "" }));
-      }
+      setContact(prev => ({ ...prev, [key]: e.target.value }));
+      if (errors[key]) setErrors(prev => ({ ...prev, [key]: "" }));
     };
 
     const isFormValid =
@@ -427,8 +426,8 @@ export default function Home() {
 
     const onSave = async (e) => {
       e.preventDefault();
-      setServiceCall(true);
-
+      setIsSubmitting(true);
+      setServiceCall(true)
       let newErrors = {};
       if (!contact.name.trim()) newErrors.name = "Name is required";
       if (!contact.email.trim()) newErrors.email = "Email is required";
@@ -439,18 +438,21 @@ export default function Home() {
 
       if (Object.keys(newErrors).length > 0) {
         setErrors(newErrors);
-        setServiceCall(false);
+        setIsSubmitting(false);
         return;
       }
 
       try {
         const response = await fetch(`/api/contact`, {
           method: "POST",
-          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(contact),
         });
+        if (response.status) {
+          setServiceCall(false)
+        }
         if (response.status === 200) {
-          setRootContext((prev) => ({
+          setRootContext(prev => ({
             ...prev,
             toast: {
               show: true,
@@ -462,138 +464,86 @@ export default function Home() {
           }));
           setContact({ name: "", company_name: "", email: "", subject: "", message: "" });
           setErrors({});
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Submission failed");
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        setRootContext(prev => ({
+          ...prev,
+          toast: {
+            show: true,
+            dismiss: true,
+            type: "error",
+            title: "Error",
+            message: error.message || "Something went wrong. Please try again.",
+          },
+        }));
+      } finally {
+        setIsSubmitting(false);
       }
-      setServiceCall(false);
     };
 
     return (
-      <div className="w-[80%] mx-auto flex flex-col lg:flex-row justify-between gap-10 relative">
-        <div className="w-full lg:w-1/2 space-y-6">
-          <p className="text-gray-800 max-w-md leading-relaxed">{pageData.contact.address}</p>
-          <div className="space-y-1">
-            <p className="text-xl font-semibold text-gray-900">{pageData.contact.phone}</p>
-            <a
-              href={`mailto:${pageData.contact.email}`}
-              className="text-green-500 hover:underline text-lg font-medium"
-            >
-              {pageData.contact.email}
-            </a>
-          </div>
-          <div className="flex gap-4 pt-4">
-            <a
-              href={pageData.contact.facebook || "#"}
-              target="_blank"
-              className="w-10 h-10 flex items-center justify-center bg-green-500 text-black rounded-full hover:bg-green-600 transition"
-            >
-              <Facebook size={18} />
-            </a>
-            <a
-              href={pageData.contact.linkedin || "#"}
-              target="_blank"
-              className="w-10 h-10 flex items-center justify-center bg-green-500 text-black rounded-full hover:bg-green-600 transition"
-            >
-              <LinkedIn size={18} />
-            </a>
-            <a
-              href={pageData.contact.instagram || "#"}
-              target="_blank"
-              className="w-10 h-10 flex items-center justify-center bg-green-500 text-black rounded-full hover:bg-green-600 transition"
-            >
-              <Instagram size={18} />
-            </a>
-            <a
-              href={`mailto:${pageData.contact.email}`}
-              className="w-10 h-10 flex items-center justify-center bg-green-500 text-black rounded-full hover:bg-green-600 transition"
-            >
-              <Mail size={18} />
-            </a>
-          </div>
-          <div className="mt-6 flex justify-left">
-            <Image
-              src="/images/logo.png"
-              alt="Logo"
-              width={180}
-              height={180}
-              className="object-contain w-52 sm:w-64 md:w-72 lg:w-72 xl:w-80"
-            />
-          </div>
+      <div className="py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-20" />
         </div>
+        <div className="w-[85%] mx-auto relative z-10">
+          <div className="flex flex-col lg:flex-row justify-between gap-10">
+            {/* Left column */}
+            <div className="w-full lg:w-1/2 space-y-6">
+              <p className="text-gray-800 max-w-md leading-relaxed text-lg">{pageData.contact.address}</p>
+              <div className="space-y-1">
+                <p className="text-xl font-semibold text-gray-900">{pageData.contact.phone}</p>
+                <a href={`mailto:${pageData.contact.email}`} className="text-green-600 hover:text-green-700 text-lg font-medium transition">
+                  {pageData.contact.email}
+                </a>
+              </div>
+              <div className="flex gap-4 pt-4">
+                <a href={pageData.contact.facebook || "#"} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition shadow-md">
+                  <Facebook size={18} />
+                </a>
+                <a href={pageData.contact.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition shadow-md">
+                  <LinkedIn size={18} />
+                </a>
+                <a href={pageData.contact.instagram || "#"} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition shadow-md">
+                  <Instagram size={18} />
+                </a>
+                <a href={`mailto:${pageData.contact.email}`} className="w-10 h-10 flex items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition shadow-md">
+                  <Mail size={18} />
+                </a>
+              </div>
+              <div className="mt-6 flex justify-left">
+                <Image src="/images/logo.png" alt="Logo" width={180} height={180} className="object-contain w-52 sm:w-64 md:w-72" />
+              </div>
+            </div>
 
-        <div className="w-full lg:w-1/2 p-10 rounded-3xl shadow-lg">
-          <h3 className="text-2xl font-bold mb-6 text-gray-900">Any Opportunities?</h3>
-          <form className="space-y-6" onSubmit={onSave}>
-            <FloatingInput
-              label="Name"
-              type="text"
-              value={contact.name}
-              onChange={(e) => onValuesChange(e, "name")}
-              required
-              error={!!errors.name}
-              errorMessage={errors.name}
-              color="bg-green-100"
-              icon={User}
-            />
-
-            <FloatingInput
-              label="Company Name"
-              type="text"
-              value={contact.company_name}
-              onChange={(e) => onValuesChange(e, "company_name")}
-              color="bg-green-100"
-              icon={User}
-            />
-
-            <FloatingInput
-              label="Email"
-              type="email"
-              value={contact.email}
-              onChange={(e) => onValuesChange(e, "email")}
-              required
-              error={!!errors.email}
-              errorMessage={errors.email}
-              color="bg-green-100"
-              icon={Mail}
-            />
-
-            <FloatingInput
-              label="Subject"
-              type="text"
-              value={contact.subject}
-              onChange={(e) => onValuesChange(e, "subject")}
-              required
-              error={!!errors.subject}
-              errorMessage={errors.subject}
-              color="bg-green-100"
-              icon={Target}
-            />
-
-            <FloatingInput
-              label="Message"
-              multiline
-              rows={4}
-              value={contact.message}
-              onChange={(e) => onValuesChange(e, "message")}
-              required
-              error={!!errors.message}
-              errorMessage={errors.message}
-              color="bg-green-100"
-              icon={Mail}
-            />
-
-            <button
-              type="submit"
-              disabled={!isFormValid}
-              className={`mt-4 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200 shadow-md ${isFormValid
-                ? "bg-green-400 cursor-pointer hover:bg-green-600 text-black hover:shadow-green-500/30"
-                : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                }`}
-            >
-              Submit now
-            </button>
-          </form>
+            {/* Right column - Form */}
+            <div className="w-full lg:w-1/2 p-6 md:p-10 rounded-3xl shadow-xl bg-white border border-gray-100">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">Any Opportunities?</h3>
+              <form className="space-y-6" onSubmit={onSave}>
+                <FloatingInput label="Name" value={contact.name} onChange={(e) => onValuesChange(e, "name")}
+                  required error={!!errors.name} errorMessage={errors.name} color="bg-green-50" icon={User} />
+                <FloatingInput label="Company Name" value={contact.company_name} onChange={(e) => onValuesChange(e, "company_name")}
+                  color="bg-green-50" icon={User} />
+                <FloatingInput label="Email" type="email" value={contact.email} onChange={(e) => onValuesChange(e, "email")}
+                  required error={!!errors.email} errorMessage={errors.email} color="bg-green-50" icon={Mail} />
+                <FloatingInput label="Subject" value={contact.subject} onChange={(e) => onValuesChange(e, "subject")}
+                  required error={!!errors.subject} errorMessage={errors.subject} color="bg-green-50" icon={Target} />
+                <FloatingInput label="Message" multiline rows={4} value={contact.message} onChange={(e) => onValuesChange(e, "message")}
+                  required error={!!errors.message} errorMessage={errors.message} color="bg-green-50" icon={Mail} />
+                <button type="submit" disabled={!isFormValid || isSubmitting}
+                  className={`mt-4 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200 shadow-md w-full sm:w-auto ${isFormValid && !isSubmitting
+                    ? "bg-gradient-to-r from-green-600 to-emerald-600 text-white cursor-pointer hover:shadow-lg hover:-translate-y-0.5"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    }`}>
+                  {isSubmitting ? "Sending..." : "Submit now"}
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -636,14 +586,8 @@ export default function Home() {
 
   const renderEducationSection = () => {
     return (
-      <div className="py-8 relative overflow-hidden">
+      <div className="py-5 relative overflow-hidden">
         <div className="w-[80%] mx-auto">
-          <div className="flex flex-col items-center mb-4">
-            <h2 className="text-lg md:text-4xl font-bold flex items-center gap-3 text-gray-900 relative">
-              <Award className="w-8 h-8 text-green-600" /> {pageData.education.title}
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 rounded-full bg-gradient-to-r from-green-400 via-green-300 to-blue-400"></span>
-            </h2>
-          </div>
           <div className="grid md:grid-cols-2 gap-8">
             <GlowCard className="h-full" fixedHeight={true}>
               <div className="p-6 h-full flex flex-col backdrop-blur-sm">
@@ -682,22 +626,29 @@ export default function Home() {
   return (
     <div className="w-full text-gray-800 font-sans bg-white m-0">
       {serviceCall && <Loader />}
-
-      {/* Sticky Navigation Tabs with Sliding Indicator */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-gray-200 to-gray-300 backdrop-blur-sm shadow-sm">
-        <div className="w-[85%] mx-auto flex justify-between items-center h-16">
+      <div className="fixed top-0 left-0 right-0 z-50 flex flex-wrap gap-4 justify-center bg-gradient-to-br from-gray-200 to-gray-300 backdrop-blur-sm shadow-sm py-2 z-[99999] border-b border-gray-300">
+        <div className="w-[80%] mx-auto flex justify-between items-center h-16">
           <div onClick={() => scrollToSection("/")} className="h-18 w-18 cursor-pointer">
             <Image src="/images/logo.png" alt="Bheemudu" width={150} height={150} className="h-full w-full object-cover scale-[140%]" />
           </div>
           <div
             ref={tabsContainerRef}
-            className="relative flex overflow-x-auto scrollbar-hide gap-2 py-0.5"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="relative flex overflow-x-auto scrollbar-hide px-2 gap-2"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+            onMouseLeave={() => { }}
           >
+            {/* Sliding Active Indicator (Yellow) */}
             <span
-              className="absolute bottom-0 h-full bg-green-600/80 border-green-600/80 rounded-full transition-all duration-500 ease-in-out z-30"
-              style={{ width: activeIndicator.width, left: activeIndicator.left }}
+              className={`absolute bottom-green-600/70 h-full bg-green-600/70 rounded-full transition-all duration-500 ease-in-out z-30`}
+              style={{
+                width: activeIndicator.width,
+                left: activeIndicator.left,
+              }}
             ></span>
+
             {sections.map((section) => (
               <button
                 key={section.id}
@@ -708,9 +659,9 @@ export default function Home() {
                   }
                 }}
                 onClick={() => handleTabClick(section.id)}
-                className={`px-4 py-1.5 rounded-full whitespace-nowrap font-medium transition-all duration-300 flex-shrink-0 relative ${activeTab === section.id
+                className={`px-4 py-1.5 cursor-pointer rounded-full whitespace-nowrap font-medium transition-all duration-300 flex-shrink-0 relative ${activeTab === section.id
                   ? "text-sm text-gray-700 border border-transparent z-30"
-                  : "bg-gray-100 text-sm text-gray-700 border border-gray-400 z-10"
+                  : "bg-gray-100 text-sm text-gray-700 border border-gray-200 z-10"
                   }`}
               >
                 {section.label}
@@ -718,7 +669,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </header>
+      </div>
 
       <main className="px-0">
         {/* Hero Section */}
@@ -729,7 +680,7 @@ export default function Home() {
           </div>
           <div className="relative z-10 w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 flex flex-col-reverse md:flex-row items-center justify-between max-w-[1400px] mx-auto">
             <div className="flex-1 text-center md:text-left text-gray-50 drop-shadow-lg">
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">Welcome to <span className="text-amber-500">{pageData.hero.name}</span></h1>
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">Welcome to <span className="text-green-500">{pageData.hero.name}</span></h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-4 md:mb-6 font-semibold">{pageData.hero.title}</p>
               <p className="text-sm sm:text-base md:text-lg text-gray-50 leading-relaxed max-w-[600px] mx-auto md:mx-0">{pageData.hero.subtitle}</p>
             </div>
@@ -737,7 +688,7 @@ export default function Home() {
               <div className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem]">
                 <Image src={pageData.hero.imageUrl} alt={pageData.hero.name} fill className="object-cover rounded-full mix-blend-overlay brightness-105 contrast-125 shadow-xs" priority />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#063A62]/70 via-[#063A62]/40 to-transparent mix-blend-multiply" />
-                <div className="absolute -inset-1 rounded-full bg-[#063A62]/30 blur-xl opacity-80" />
+                <div className="absolute -inset-1 rounded-full bg-[#063A62]/30 blur-xl opacity-50" />
               </div>
             </div>
           </div>
@@ -774,36 +725,54 @@ export default function Home() {
             className="scroll-mt-36 py-12 relative overflow-hidden"
           >
             <div className="w-[80%] mx-auto">
-              {/* Border Tile Heading - replaces old animated borders */}
-              <div className="mb-10 flex justify-center">
-                <div
-                  className={`
-                    inline-flex items-center gap-3 px-6 py-2 rounded-xl border-2 
-                    transition-all duration-300 backdrop-blur-sm
-                    ${activeTab === section.id
-                      ? 'border-green-500 bg-green-50/80 shadow-md shadow-green-200/50'
-                      : 'border-gray-300 bg-white/50 hover:border-green-300'
-                    }
-                  `}
-                >
-                  <span className="text-green-600">
-                    {getSectionIcon(section.id)}
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                    {getSectionTitle(section)}
-                  </h2>
+              <div className="mb-10 relative">
+                <div className="flex items-center justify-center">
+                  {/* Left border */}
+                  {activeTab === section.id ? (
+                    <motion.div
+                      initial={{ scaleX: 0, originX: 1 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
+                      className="h-0.5 bg-gradient-to-r from-transparent via-green-300 to-green-300 flex-1 shadow-[0_0_15px_rgba(250,204,21,0.5)]"
+                    />
+                  ) : (
+                    <div className="h-0.5 bg-green-100/30 flex-1" />
+                  )}
+
+                  <div className={`flex gap-3 items-center text-3xl font-bold px-6 whitespace-nowrap relative ${activeTab === section.id
+                    ? "text-gray-900"
+                    : "text-gray-600"
+                    }`}
+                  >
+                    <span className="text-green-600">
+                      {getSectionIcon(section.id)}
+                    </span>
+                    <span className="text-2xl md:text-3xl font-bold text-gray-800">
+                      {getSectionTitle(section)}
+                    </span>
+                  </div>
+                  {/* Right border */}
+                  {activeTab === section.id ? (
+                    <motion.div
+                      initial={{ scaleX: 0, originX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
+                      className="h-0.5 bg-gradient-to-r from-green-300 via-green-300 to-transparent flex-1 shadow-[0_0_15px_rgba(250,204,21,0.5)]"
+                    />
+                  ) : (
+                    <div className="h-0.5 bg-green-100/30 flex-1" />
+                  )}
                 </div>
               </div>
-
               {/* Section Content */}
-              <div className="animate-fadeIn">
+              <div className="animate-fadeIn pb-10">
                 {section.id === "about" && renderAboutSection()}
-                {section.id === "positioning" && renderPositioningSection()}
-                {section.id === "journey" && renderJourneySection()}
+                {section.id === "skills" && renderSkillsSection()}
+                {section.id === "experience" && renderExpSection()}
                 {section.id === "companies" && renderCompaniesSection()}
                 {section.id === "projects" && renderProjectsSection()}
                 {section.id === "education" && renderEducationSection()}
-                {section.id === "contact" && renderContactSection()}
+                {section.id === "contact" && <ContactSection />}
               </div>
             </div>
           </section>

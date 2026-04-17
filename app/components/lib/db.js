@@ -2,10 +2,7 @@
 import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
-const options = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-};
+const options = {};  // No deprecated options needed
 
 if (!uri) {
     throw new Error("Please add your Mongo URI to .env.local");

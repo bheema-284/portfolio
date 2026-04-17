@@ -41,7 +41,7 @@ export const pageData = {
         ],
         imageUrl: "/images/pic.jpeg",
     },
-    positioning: {
+    skills: {
         title: "Core Competencies",
         points: [
             { icon: <Code className="text-yellow-600" size={32} />, title: "Frontend Development", description: "React.js, Next.js, Tailwind CSS, Material UI, Bootstrap – building responsive, high-performance UIs." },
@@ -52,7 +52,7 @@ export const pageData = {
             { icon: <Briefcase className="text-yellow-600" size={32} />, title: "Domain Expertise", description: "OTT platforms, Real Estate portals, CRM/CMS, Job boards, Approval hierarchies." },
         ]
     },
-    journey: {
+    experience: {
         title: "Work Experience",
         timeline: [
             {
@@ -119,7 +119,7 @@ export const pageData = {
                 link: "https://main--timely-gnome-b21044.netlify.app/",
                 github: "https://github.com/bheema-284/fun-quiz-app",
                 image: "/images/funquiz.png"
-            },          
+            },
             {
                 title: "Real Beez – Real Estate CRM",
                 description: "Enterprise CRM for real estate agents with lead management, property tracking, analytics dashboards, and role-based access.",
