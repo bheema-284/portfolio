@@ -13,7 +13,7 @@ export const pageData = {
         title: "Senior Software Developer | MERN Stack Specialist",
         subtitle: "I am a results-driven MERN Stack Developer with 3.5+ years of experience building scalable web & mobile apps using React.js, Next.js, React Native, Node.js, MongoDB, and Tailwind CSS. I have delivered OTT platforms (video playback, subscriptions, booking engines), real-estate portals, CRM/CMS systems, and enterprise dashboards.\n\nCurrently at Travelxp.com (Mumbai), I develop feature-rich modules and cross-platform mobile/TV apps. My projects include Alpha Realty (job board with auth & analytics), an LMS dashboard, and a quiz app. I am proficient in JIRA, Git, Figma, and Agile workflows.\n\nI am actively seeking MERN / Frontend opportunities. If you have openings or referrals, let’s connect.",
         name: "Bheemudu Guguloth",
-        imageUrl: "/images/pic2.png",
+        imageUrl: "/images/picture1.png",
         bgImage: "/images/bgimage2.jpeg",
     },
     stats: {

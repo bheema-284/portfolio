@@ -778,10 +778,16 @@ export default function Home() {
     <div className="w-full text-gray-800 font-sans bg-white m-0">
       {serviceCall && <Loader />}
       <div className="fixed top-0 left-0 right-0 z-50 flex flex-wrap gap-4 justify-center bg-gradient-to-br from-gray-200 to-gray-300 backdrop-blur-sm shadow-sm py-2 z-[99999] border-b border-gray-300">
-        <div className="w-[80%] mx-auto flex justify-between items-center h-16">
+        <div className="w-full sm:w-[80%] mx-auto flex justify-between items-center h-16">
           {/* Logo click now uses unified navigateToSection(null) */}
-          <div onClick={() => navigateToSection(null)} className="h-18 w-18 cursor-pointer">
-            <Image src="/images/logo.png" alt="Bheemudu" width={150} height={150} className="h-full w-full object-cover scale-[140%]" />
+          <div onClick={() => navigateToSection(null)} className="cursor-pointer flex-shrink-0">
+            <Image
+              src="/images/logo.png"
+              alt="Bheemudu"
+              width={120}
+              height={120}
+              className="h-10 w-auto md:h-14 object-contain"
+            />
           </div>
           <div
             ref={tabsContainerRef}
@@ -821,7 +827,7 @@ export default function Home() {
         </div>
       </div>
 
-      <main className="px-0">
+      <div className="px-0">
         {/* Hero Section */}
         <section id="/" className="relative w-screen min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center">
           <div className="absolute inset-0 w-full h-full z-0 bg-cover bg-center" style={{ backgroundImage: `url(${pageData.hero.bgImage})`, opacity: 0.7 }} />
@@ -831,30 +837,30 @@ export default function Home() {
           <div className="relative z-10 w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 flex flex-col-reverse md:flex-row items-center justify-between max-w-[1400px] mx-auto">
             <div className="flex-1 text-center md:text-left text-gray-50 drop-shadow-lg">
               {/* Executive tagline */}
-              <div className="inline-block px-4 py-2 mt-16 mb-4 text-sm font-semibold tracking-wide bg-white/20 backdrop-blur-sm rounded-full">
+              <div className="inline-block px-4 py-2 mt-5 sm:mt-24 mb-4 text-sm font-semibold tracking-wide bg-white/20 backdrop-blur-sm rounded-full">
                 ⚡ Full‑Stack Architect | MERN • React Native • Flutter
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight">
                 <span className="text-green-400">{pageData.hero.name}</span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-4 md:mb-6 font-semibold">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-2 md:mb-4 font-semibold">
                 {pageData.hero.title}
               </p>
               <p className="text-base sm:text-lg text-gray-100 leading-relaxed max-w-[600px] mx-auto md:mx-0">
                 {pageData.hero.subtitle}
               </p>
               {/* CTA buttons */}
-              <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                <a href="#contact" className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-full font-semibold transition shadow-lg">
+              <div className="my-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="#contact" className="px-6 py-2.5 bg-green-600 hover:bg-green-700 rounded-full font-semibold transition shadow-lg">
                   📬 Hire Me
                 </a>
-                <a href="#projects" className="px-6 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full font-semibold transition">
+                <a href="#projects" className="px-6 py-2.5 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full font-semibold transition">
                   🚀 View Work
                 </a>
               </div>
             </div>
-            <div className="flex justify-center md:justify-end flex-1">
-              <div className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem]">
+            <div className="flex justify-center md:justify-end flex-1 pt-24 sm:pt-0">
+              <div className="relative w-60 h-60 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem]">
                 <Image src={pageData.hero.imageUrl} alt={pageData.hero.name} fill className="object-cover rounded-full mix-blend-overlay brightness-105 contrast-125 shadow-xs" priority />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#063A62]/70 via-[#063A62]/40 to-transparent mix-blend-multiply" />
                 <div className="absolute -inset-1 rounded-full bg-[#063A62]/30 blur-xl opacity-50" />
@@ -945,7 +951,7 @@ export default function Home() {
           </section>
         ))}
         <Footer />
-      </main>
+      </div>
 
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }
