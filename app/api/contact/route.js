@@ -39,7 +39,7 @@ export async function POST(req) {
             service: "gmail",
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                pass: process.env.EMAIL_PASSWORD,
             },
         });
 
@@ -68,40 +68,60 @@ export async function POST(req) {
 
         // 2️⃣ Thank you email to the person who contacted you (HR / friend / recruiter)
         const userMailOptions = {
-            from: `"Bheemudu Guguloth" <${process.env.EMAIL_USER}>`,
+            from: `"Bheemudu Guguloth – MERN Architect" <${process.env.EMAIL_USER}>`,
             to: value.email,
-            subject: `Thank you for reaching out, ${value.name}`,
+            subject: `🚀 Thank you for connecting, ${value.name} – Let's build the future together`,
             html: `
-                <div style="font-family: Arial, sans-serif; padding: 16px; line-height: 1.6;">
-                    <h2 style="color: #16a34a;">Hello ${value.name},</h2>
-                    <p>Thank you for taking the time to contact me – I truly appreciate it.</p>
-                    
-                    <p>I'm currently exploring new opportunities as a <strong>MERN Stack / Frontend Developer</strong> with 4+ years of experience.</p>
-                    
-                    <div style="background: #e6f7ff; padding: 16px; border-radius: 12px; margin: 20px 0;">
-                        <p style="margin: 0; font-size: 16px;"><strong>📢 Quick request:</strong></p>
-                        <p style="margin: 8px 0 0;">If you come across any <strong>relevant openings</strong> in your organization or network, would you mind letting me know? A referral or a simple heads-up would be incredibly helpful.</p>
-                    </div>
+    <div style="font-family: 'Inter', 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #ffffff; border-radius: 24px; box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);">
+      
+      <!-- Header with brand -->
+      <div style="text-align: center; margin-bottom: 32px;">
+        <h1 style="color: #059669; font-size: 28px; font-weight: 800; margin: 0;">Bheemudu Guguloth</h1>
+        <p style="color: #4b5563; font-size: 16px; margin-top: 4px;">Senior Full‑Stack Engineer | MERN • React Native • Flutter</p>
+        <div style="width: 60px; height: 4px; background: #10b981; margin: 16px auto 0; border-radius: 4px;"></div>
+      </div>
 
-                    <p><strong>My core skills:</strong></p>
-                    <ul>
-                        <li>✅ React.js, Next.js, React Native, Node.js, MongoDB</li>
-                        <li>✅ OTT platforms, Real Estate portals, CRM/CMS</li>
-                        <li>✅ Problem solving, team collaboration, performance optimization</li>
-                    </ul>
+      <!-- Hero greeting -->
+      <div style="background: #f0fdf4; padding: 20px; border-radius: 20px; margin-bottom: 28px;">
+        <p style="font-size: 18px; font-weight: 600; color: #065f46; margin: 0 0 8px 0;">Hello ${value.name},</p>
+        <p style="font-size: 16px; color: #1f2937; margin: 0;">Thank you for reaching out – I genuinely appreciate your time and interest.</p>
+      </div>
 
-                    <p>Feel free to reply to this email or reach me at <strong>+91-9000133416</strong> (WhatsApp).</p>
+      <!-- Value proposition (CEO style) -->
+      <div style="margin-bottom: 28px;">
+        <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin: 0 0 12px 0;">⚡ My value at a glance</h2>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">✅ <strong>4+ years</strong> – MERN, React Native, Flutter, Node.js, MongoDB</li>
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🚀 <strong>15+ production apps</strong> – OTT platforms, Real Estate CRM, Job Portals</li>
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">📊 <strong>Performance & scale</strong> – Reduced load times by 40%, served 500k+ users</li>
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🏢 <strong>Leadership</strong> – Led frontend teams, mentored juniors, Agile delivery</li>
+        </ul>
+      </div>
 
-                    <p>Thank you again for your support – I look forward to staying in touch.</p>
-                    <p>Best regards,<br/>
-                    <strong>Bheemudu Guguloth</strong><br/>
-                    📞 9000133416 / 8309819073<br/>
-                    ✉️ bheemudug@gmail.com<br/>
-                    🔗 <a href="https://portfolio-bheema.vercel.app">portfolio-bheema.vercel.app</a></p>
-                    <hr/>
-                    <p style="font-size: 12px; color: #6b7280;">This is an automated confirmation. Feel free to reply directly.</p>
-                </div>
-            `,
+      <!-- Referral ask (direct but respectful) -->
+      <div style="background: #eff6ff; padding: 20px; border-radius: 20px; margin-bottom: 28px; border-left: 4px solid #2563eb;">
+        <p style="font-size: 16px; font-weight: 600; color: #1e3a8a; margin: 0 0 8px 0;">🤝 How you can help (if you're open to it)</p>
+        <p style="font-size: 15px; color: #1f2937; margin: 0;">
+          I'm actively seeking <strong>Full‑Stack / MERN Lead roles</strong>. If your organisation or any in your network has an opening, 
+          a quick <strong>referral or heads‑up</strong> would mean the world to me. I'm happy to share my resume or discuss how I can add value.
+        </p>
+      </div>
+
+      <!-- Contact & call to action -->
+      <div style="text-align: center; margin-bottom: 24px;">
+        <a href="tel:+919000133416" style="display: inline-block; background: #059669; color: white; text-decoration: none; padding: 12px 24px; border-radius: 40px; font-weight: 600; margin-right: 12px;">📞 Call me</a>
+        <a href="https://portfolio-bheema.vercel.app" style="display: inline-block; background: #1f2937; color: white; text-decoration: none; padding: 12px 24px; border-radius: 40px; font-weight: 600;">🌐 View portfolio</a>
+      </div>
+
+      <!-- Signature -->
+      <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
+        <p style="font-size: 14px; color: #4b5563; margin: 0;">With gratitude,</p>
+        <p style="font-size: 18px; font-weight: 700; color: #059669; margin: 4px 0 0;">Bheemudu Guguloth</p>
+        <p style="font-size: 14px; color: #6b7280; margin: 4px 0;">+91 9000133416 / 8309819073  |  bheemudug@gmail.com</p>
+        <p style="font-size: 12px; color: #9ca3af; margin-top: 16px;">This is an automated confirmation – feel free to reply directly.</p>
+      </div>
+    </div>
+  `,
         };
 
         await transporter.sendMail(userMailOptions);
@@ -113,6 +133,9 @@ export async function POST(req) {
         });
     } catch (error) {
         console.error("Contact API error:", error);
-        return Response.json({ error: "Something went wrong. Please try again later." }, { status: 500 });
+        return Response.json(
+            { error: error.message || "Internal server error" },
+            { status: 500 }
+        );
     }
 }

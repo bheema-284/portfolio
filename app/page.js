@@ -684,8 +684,8 @@ export default function Home() {
               show: true,
               dismiss: true,
               type: "success",
-              title: "Success",
-              message: "We Received Your Query Successfully!",
+              title: "Thank You! 🙏",
+              message: "Your message means a lot. I truly appreciate your referral support and will get back to you within 24 hours.",
             },
           }));
           setContact({ name: "", company_name: "", email: "", subject: "", message: "" });
