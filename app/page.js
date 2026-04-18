@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, createRef, useContext } from "react";
-import { User, Mail, BarChart3, Plane, Award, Target, Lightbulb, FolderGit2 } from 'lucide-react';
+import { User, Mail, BarChart3, Plane, Award, Target, Lightbulb, FolderGit2, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import Loader from "./components/loader";
@@ -274,7 +274,7 @@ export default function Home() {
           <div className="space-y-6">
             {/* Tagline / role */}
             <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
-              🚀 MERN Stack Architect | 4+ Years of Scale
+              MERN Stack Architect | 4+ Years of Scale
             </div>
 
             {/* Short, punchy bio */}
@@ -336,7 +336,7 @@ export default function Home() {
                 href="#contact"
                 className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md"
               >
-                Let’s build something great <span>→</span>
+                Let&apos;s build something great <span>→</span>
               </a>
             </div>
           </div>
@@ -600,7 +600,7 @@ export default function Home() {
                     <h4 className="font-bold text-gray-900">{item.degree}</h4>
                     <p className="text-gray-700">{item.institution}</p>
                     <p className="text-sm text-gray-500">{item.period}</p>
-                    <p className="text-green-600 font-medium mt-1">🏅 {item.achievement}</p>
+                    <p className="text-green-600 font-medium mt-1">{item.achievement}</p>
                   </div>
                 ))}
               </div>
@@ -608,17 +608,17 @@ export default function Home() {
           </GlowCard>
           <GlowCard className="h-full" fixedHeight={true}>
             <div className="p-6 h-full flex flex-col backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 flex items-center gap-2">🏆 Recognition</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 flex items-center gap-2">Recognition</h3>
               <ul className="space-y-3 flex-grow">
                 {pageData.education.awards.map((award, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">⭐</span>
+                    <span className="text-green-500 mr-2 mt-1"><Star /></span>
                     <span className="text-gray-800">{award}</span>
                   </li>
                 ))}
               </ul>
               <div className="mt-6 p-3 bg-green-50 rounded-lg">
-                <p className="text-sm text-gray-700">📜 <strong>Certifications:</strong> MERN Stack (Masai School), React Native (Udemy), Flutter Basics</p>
+                <p className="text-sm text-gray-700"><strong>Certifications:</strong> MERN Stack (Masai School), React Native (Udemy), Flutter Basics</p>
               </div>
             </div>
           </GlowCard>
@@ -838,7 +838,7 @@ export default function Home() {
             <div className="flex-1 text-center md:text-left text-gray-50 drop-shadow-lg">
               {/* Executive tagline */}
               <div className="inline-block px-4 py-2 mt-5 sm:mt-24 mb-4 text-sm font-semibold tracking-wide bg-white/20 backdrop-blur-sm rounded-full">
-                ⚡ Full‑Stack Architect | MERN • React Native • Flutter
+                Full‑Stack Architect | MERN • React Native • Flutter
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight">
                 <span className="text-green-400">{pageData.hero.name}</span>
@@ -852,10 +852,10 @@ export default function Home() {
               {/* CTA buttons */}
               <div className="my-8 flex flex-wrap gap-4 justify-center md:justify-start">
                 <a href="#contact" className="px-6 py-2.5 bg-green-600 hover:bg-green-700 rounded-full font-semibold transition shadow-lg">
-                  📬 Hire Me
+                  Hire Me
                 </a>
                 <a href="#projects" className="px-6 py-2.5 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full font-semibold transition">
-                  🚀 View Work
+                  View Work
                 </a>
               </div>
             </div>

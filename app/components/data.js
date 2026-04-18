@@ -20,9 +20,9 @@ export const pageData = {
         title: "Impact Numbers",
         items: [
             { value: 4, label: "Years Experience", imageUrl: "/icons/experience.svg" },
-            { value: 15, label: "Projects Delivered", imageUrl: "/icons/projects.svg" },
-            { value: 10, label: "Happy Clients", imageUrl: "/icons/clients.svg" },
-            { value: 100, label: "Code Reviews", imageUrl: "/icons/reviews.svg" },
+            { value: 5, label: "Projects Delivered", imageUrl: "/icons/projects.svg" },
+            { value: 5, label: "Happy Clients", imageUrl: "/icons/clients.svg" },
+            { value: 30, label: "Code Reviews", imageUrl: "/icons/reviews.svg" },
         ]
     },
     about: {

@@ -1183,7 +1183,7 @@ export default function FloatingInput({
                         onFocus={handleFocus}
                         maxLength={type === 'tel' ? 10 : undefined}
                         onBlur={handleBlur}
-                        className={`${getInputStyles()} py-4 ${getBackgroundColor()} ${IconComponent ? 'pl-10' : 'pl-4'} ${shouldShowError ? 'pr-10' : ''} ${type === 'password' ? 'pr-12' : ''}`}
+                        className={`${getInputStyles()} py-3 ${getBackgroundColor()} ${IconComponent ? 'pl-10' : 'pl-4'} ${shouldShowError ? 'pr-10' : ''} ${type === 'password' ? 'pr-12' : ''}`}
                         placeholder={placeholder || label}
                         disabled={disabled}
                         {...props}
