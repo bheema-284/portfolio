@@ -91,9 +91,9 @@ export async function POST(req) {
       <div style="margin-bottom: 28px;">
         <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin: 0 0 12px 0;">⚡ My value at a glance</h2>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">✅ <strong>4+ years</strong> – MERN, React Native, Flutter, Node.js, MongoDB</li>
-          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🚀 <strong>15+ production apps</strong> – OTT platforms, Real Estate CRM, Job Portals</li>
-          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">📊 <strong>Performance & scale</strong> – Reduced load times by 40%, served 500k+ users</li>
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">✅ <strong>3.5+ years</strong> – MERN, React Native, Flutter, Node.js, MongoDB</li>
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🚀 <strong>3+ production apps</strong> – OTT platforms, Real Estate CRM, Job Portals</li>
+          <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">📊 <strong>Performance & scale</strong> – Reduced load times by 35%, served 50k+ users</li>
           <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">🏢 <strong>Leadership</strong> – Led frontend teams, mentored juniors, Agile delivery</li>
         </ul>
       </div>
@@ -108,9 +108,11 @@ export async function POST(req) {
       </div>
 
       <!-- Contact & call to action -->
-      <div style="text-align: center; margin-bottom: 24px;">
-        <a href="tel:+919000133416" style="display: inline-block; background: #059669; color: white; text-decoration: none; padding: 12px 24px; border-radius: 40px; font-weight: 600; margin-right: 12px;">📞 Call me</a>
-        <a href="https://portfolio-bheema.vercel.app" style="display: inline-block; background: #1f2937; color: white; text-decoration: none; padding: 12px 24px; border-radius: 40px; font-weight: 600;">🌐 View portfolio</a>
+     <div style="text-align: center; margin-bottom: 24px;">
+     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; align-items: center;">
+        <a href="tel:+919000133416" style="display: inline-block; background: #059669; color: white; text-decoration: none; padding: 10px 24px; border-radius: 40px; font-weight: 600;">📞 Call me</a>
+        <a href="https://portfolio-bheema.vercel.app" style="display: inline-block; background: #1f2937; color: white; text-decoration: none; padding: 10px 24px; border-radius: 40px; font-weight: 600;">🌐 View portfolio</a>
+      </div>
       </div>
 
       <!-- Signature -->

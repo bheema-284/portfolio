@@ -19,15 +19,15 @@ export const pageData = {
     stats: {
         title: "Impact Numbers",
         items: [
-            { value: 4, label: "Years Experience", imageUrl: "/icons/experience.svg" },
-            { value: 5, label: "Projects Delivered", imageUrl: "/icons/projects.svg" },
-            { value: 5, label: "Happy Clients", imageUrl: "/icons/clients.svg" },
-            { value: 30, label: "Code Reviews", imageUrl: "/icons/reviews.svg" },
+            { value: 3.5, label: "Years Experience", imageUrl: "/icons/experience.svg" },
+            { value: 3, label: "Projects Delivered", imageUrl: "/icons/projects.svg" },
+            { value: 3, label: "Happy Clients", imageUrl: "/icons/clients.svg" },
+            { value: 15, label: "Code Reviews", imageUrl: "/icons/reviews.svg" },
         ]
     },
     about: {
         title: "About Me",
-        description: "I'm a results-driven Senior Software Developer with 4+ years of experience in building performant, scalable user interfaces using React.js, Next.js, and React Native. Currently leading frontend development at Real Beez Project Pvt Ltd (Hyderabad).",
+        description: "I'm a results-driven Senior Software Developer with 3.5+ years of experience in building performant, scalable user interfaces using React.js, Next.js, and React Native. Currently leading frontend development at Real Beez Project Pvt Ltd (Hyderabad).",
         description1: "Previously at Travelxp.com (Mumbai), I built OTT platforms with video playback, subscription systems, booking engines, and program detail pages. I've also developed cross-platform mobile apps and Android TV apps using React Native.",
         description2: "My domain expertise spans CRM, CMS, Real Estate job portals, property listing with hierarchy approvals, and enterprise dashboards. I'm a problem solver, team player, and continuous learner.",
         highlights: [

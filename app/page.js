@@ -274,7 +274,7 @@ export default function Home() {
           <div className="space-y-6">
             {/* Tagline / role */}
             <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
-              MERN Stack Architect | 4+ Years of Scale
+              MERN Stack Architect | 3.5+ Years of Scale
             </div>
 
             {/* Short, punchy bio */}
@@ -289,11 +289,11 @@ export default function Home() {
             {/* Metrics row (impact numbers) */}
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="border-l-4 border-emerald-500 pl-4">
-                <div className="text-2xl font-bold text-gray-900">15+</div>
+                <div className="text-2xl font-bold text-gray-900">3+</div>
                 <div className="text-sm text-gray-500">Production Projects</div>
               </div>
               <div className="border-l-4 border-emerald-500 pl-4">
-                <div className="text-2xl font-bold text-gray-900">10+</div>
+                <div className="text-2xl font-bold text-gray-900">3+</div>
                 <div className="text-sm text-gray-500">Enterprise Clients</div>
               </div>
               <div className="border-l-4 border-emerald-500 pl-4">
@@ -372,9 +372,9 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-3 text-gray-900">{point.title}</h3>
               <p className="text-gray-700 leading-relaxed">{point.description}</p>
               {/* Optional: add a tiny metric */}
-              {index === 0 && <span className="mt-3 text-green-600 text-sm font-medium">⚡ 20+ production apps</span>}
-              {index === 1 && <span className="mt-3 text-green-600 text-sm font-medium">🔌 15+ RESTful APIs</span>}
-              {index === 2 && <span className="mt-3 text-green-600 text-sm font-medium">📱 5+ cross‑platform apps</span>}
+              {index === 0 && <span className="mt-3 text-green-600 text-sm font-medium">3+ production apps</span>}
+              {index === 1 && <span className="mt-3 text-green-600 text-sm font-medium">15+ RESTful APIs</span>}
+              {index === 2 && <span className="mt-3 text-green-600 text-sm font-medium">3+ cross‑platform apps</span>}
             </div>
           </GlowCard>
         ))}
@@ -396,17 +396,17 @@ export default function Home() {
               {/* Highlight business impact */}
               {item.company === "Travelxp India Private Limited" && (
                 <div className="mt-3 p-2 bg-green-100 rounded-lg w-full">
-                  <p className="text-sm font-semibold text-green-800">📈 Business impact: OTT platform reached 500k+ users, reduced load time by 40%</p>
+                  <p className="text-sm font-semibold text-green-800">Business impact: OTT platform reached 500k+ users, reduced load time by 40%</p>
                 </div>
               )}
               {item.company === "Real Beez Project Pvt Ltd" && (
                 <div className="mt-3 p-2 bg-green-100 rounded-lg w-full">
-                  <p className="text-sm font-semibold text-green-800">🏢 Led 5‑member frontend team, delivered 3 enterprise dashboards</p>
+                  <p className="text-sm font-semibold text-green-800">Led 5‑member frontend team, delivered 3 enterprise dashboards</p>
                 </div>
               )}
               <div className="mt-4 flex flex-wrap justify-center gap-2">
                 {item.achievements.map((ach, i) => (
-                  <span key={i} className="text-xs bg-green-800 text-green-200 px-2 py-1 rounded-full">{ach}</span>
+                  <span key={i} className="text-xs bg-green-700/80 text-green-200 px-2 py-1 rounded-full">{ach}</span>
                 ))}
               </div>
             </div>
@@ -450,7 +450,7 @@ export default function Home() {
                 </div>
                 <p className="text-gray-600 mb-4 flex-grow">{company.description}</p>
                 <div className="mb-4">
-                  <h4 className="font-semibold text-gray-800 mb-2">🔧 Key competencies:</h4>
+                  <h4 className="font-semibold text-gray-800 mb-2">Key competencies:</h4>
                   <div className="flex flex-wrap gap-2">
                     {company.focus.map((focus, i) => (
                       <span key={i} className="text-sm bg-emerald-50 text-green-700 px-3 py-1 rounded-full">{focus}</span>
@@ -458,7 +458,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg mt-auto">
-                  <h4 className="font-semibold text-green-800 mb-1">🌟 Vision:</h4>
+                  <h4 className="flex gap-1 items-center font-semibold text-green-800 mb-1"><Star size={20} /> Vision:</h4>
                   <p className="text-gray-700 text-sm">{company.vision}</p>
                 </div>
               </div>
@@ -928,10 +928,10 @@ export default function Home() {
                   </div>
                   {activeTab === section.id ? (
                     <motion.div
-                      initial={{ scaleX: 0, originX: 0 }}
+                      initial={{ scaleX: 0, originX: 1 }}
                       animate={{ scaleX: 1 }}
                       transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
-                      className="h-0.5 bg-gradient-to-r from-green-300 via-green-300 to-transparent flex-1 shadow-[0_0_15px_rgba(250,204,21,0.5)]"
+                      className="h-0.5 bg-gradient-to-r from-transparent via-green-300 to-green-300 flex-1 shadow-[0_0_15px_rgba(34,197,94,0.5)]"
                     />
                   ) : (
                     <div className="h-0.5 bg-green-100/30 flex-1" />
