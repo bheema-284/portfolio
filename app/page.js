@@ -903,18 +903,19 @@ export default function Home() {
             <div className="w-[80%] mx-auto">
               <div className="mb-10 relative">
                 <div className="flex items-center justify-center">
+                  {/* Left border */}
                   {activeTab === section.id ? (
                     <motion.div
                       initial={{ scaleX: 0, originX: 1 }}
                       animate={{ scaleX: 1 }}
                       transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
-                      className="h-0.5 bg-gradient-to-r from-transparent via-green-300 to-green-300 flex-1 shadow-[0_0_15px_rgba(250,204,21,0.5)]"
+                      className="h-0.5 bg-gradient-to-r from-transparent via-green-300 to-green-300 flex-1 shadow-[0_0_15px_rgba(34,197,94,0.5)]"
                     />
                   ) : (
                     <div className="h-0.5 bg-green-100/30 flex-1" />
                   )}
 
-                  <div className={`flex gap-3 items-center text-3xl font-bold px-6 whitespace-nowrap relative ${activeTab === section.id
+                  <h2 className={`flex gap-1 items-center justify-centertext-3xl font-bold px-6 whitespace-nowrap relative ${activeTab === section.id
                     ? "text-gray-900"
                     : "text-gray-600"
                     }`}
@@ -925,13 +926,14 @@ export default function Home() {
                     <span className="text-2xl md:text-3xl font-bold text-gray-800">
                       {getSectionTitle(section)}
                     </span>
-                  </div>
+                  </h2>
+                  {/* Right border */}
                   {activeTab === section.id ? (
                     <motion.div
-                      initial={{ scaleX: 0, originX: 1 }}
+                      initial={{ scaleX: 0, originX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ duration: 0.8, ease: "easeIn", delay: 0.2 }}
-                      className="h-0.5 bg-gradient-to-r from-transparent via-green-300 to-green-300 flex-1 shadow-[0_0_15px_rgba(34,197,94,0.5)]"
+                      className="h-0.5 bg-gradient-to-r from-green-300 via-green-300 to-transparent flex-1 shadow-[0_0_15px_rgba(34,197,94,0.5)]"
                     />
                   ) : (
                     <div className="h-0.5 bg-green-100/30 flex-1" />
