@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, createRef, useContext } from "react";
-import { User, Mail, BarChart3, Plane, Award, Target, Lightbulb, FolderGit2, Star } from 'lucide-react';
+import { User, Mail, BarChart3, Plane, Award, Target, Lightbulb, FolderGit2, Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import Loader from "./components/loader";
@@ -272,7 +272,7 @@ export default function Home() {
           {/* Left column: narrative */}
           <div className="space-y-6">
             {/* Tagline / role */}
-            <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
+            <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs sm:text-sm font-semibold">
               MERN Stack Architect | 3.5+ Years of Scale
             </div>
 
@@ -282,7 +282,7 @@ export default function Home() {
             </h2>
 
             {/* Main description + two additional paragraphs */}
-            <p className="text-gray-600 text-lg leading-relaxed">{about.description}</p>
+            <p className="text-gray-600 text-md sm:text-lg leading-relaxed">{about.description}</p>
 
             {/* Metrics row (impact numbers) */}
             <div className="grid grid-cols-2 gap-4 pt-2">
@@ -303,63 +303,10 @@ export default function Home() {
                 <div className="text-sm text-gray-500">API Integrations</div>
               </div>
             </div>
-
-            {/* Mission statement */}
-            <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
-              <p className="text-gray-700 italic">
-                “I build scalable, user-centric web & mobile solutions that turn complex requirements into seamless experiences.
-                My focus is on clean architecture, performance, and measurable ROI.”
-              </p>
-              <p className="text-emerald-600 font-semibold mt-2">— Bheemudu Guguloth</p>
-            </div>
-
-            {/* Core strengths (all highlights) */}
-            <div>
-              <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                <Target size={20} className="text-emerald-600" /> Core strengths
-              </h3>
-              <ul className="grid grid-cols-2 gap-3">
-                {about.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-center gap-2 text-gray-700">
-                    <span className="text-emerald-500 text-lg">▹</span>
-                    <span className="text-sm">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CTA buttons: Contact + Resume */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md"
-              >
-                Let's build something great <span>→</span>
-              </a>
-              {about.resume && (() => {
-                // Extract Google Drive file ID from the URL
-                const driveFileId = about.resume.match(/\/d\/([a-zA-Z0-9_-]+)/)?.[1];
-                const directDownloadLink = driveFileId
-                  ? `https://drive.google.com/uc?export=download&id=${driveFileId}`
-                  : about.resume;
-
-                return (
-                  <a
-                    href={directDownloadLink}
-                    download
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white border border-emerald-600 text-emerald-700 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-sm"
-                    onClick={() => { }}
-                  >
-                    Download Resume
-                  </a>
-                );
-              })()}
-            </div>
           </div>
 
-          {/* Right column: Professional image */}
-          <div className="relative w-full h-[30rem] sm:h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+          {/* Right column: Professional image - hidden on mobile, visible on desktop */}
+          <div className="hidden md:block relative w-full h-[30rem] sm:h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <img
               src={about.imageUrl}
               alt="Bheemudu Guguloth – MERN Stack Developer"
@@ -367,6 +314,57 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
           </div>
+        </div>
+
+        {/* Mission statement */}
+        <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+          <p className="text-gray-700 italic">
+            “I build scalable, user-centric web & mobile solutions that turn complex requirements into seamless experiences.
+            My focus is on clean architecture, performance, and measurable ROI.”
+          </p>
+          <p className="text-emerald-600 font-semibold mt-2">— Bheemudu Guguloth</p>
+        </div>
+        {/* Core strengths - left side on desktop */}
+        <div className="flex-1">
+          <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+            <Target size={20} className="text-emerald-600" /> Core strengths
+          </h3>
+          <ul className="grid grid-cols-2 gap-3">
+            {about.highlights.map((highlight, idx) => (
+              <li key={idx} className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-500 text-md sm:text-lg"><ArrowRight size={20} className="text-emerald-600"/></span>
+                <span className="text-xs sm:text-sm">{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Buttons container - right side on desktop with flex direction row */}
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6 md:gap-8">
+          <a
+            href="#contact"
+            className="w-full inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md"
+          >
+            Let's build something great
+          </a>
+          {about.resume && (() => {
+            // Extract Google Drive file ID from the URL
+            const driveFileId = about.resume.match(/\/d\/([a-zA-Z0-9_-]+)/)?.[1];
+            const directDownloadLink = driveFileId
+              ? `https://drive.google.com/uc?export=download&id=${driveFileId}`
+              : about.resume;
+
+            return (
+              <a
+                href={directDownloadLink}
+                download
+                rel="noopener noreferrer"
+                className="w-full inline-flex mt-4 sm:mt-0 items-center gap-2 bg-white border border-emerald-600 text-emerald-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-sm"
+              >
+                Download Resume
+              </a>
+            );
+          })()}
         </div>
       </div>
     );
@@ -403,7 +401,7 @@ export default function Home() {
       <div className="absolute hidden sm:block left-4 md:left-1/2 top-0 h-full w-0.5 bg-green-700/80 transform -translate-x-1/2"></div>
       {pageData.experience.timeline.map((item, index) => (
         <div key={index} className={`mb-12 relative flex items-stretch ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-          <div className="absolute hidden sm:block left-4 md:left-1/2 top-4.5 w-4 h-4 rounded-full bg-green-500 transform -translate-x-1/2 border-4 border-blue-500/60 z-10"></div>
+          <div className="absolute hidden sm:block left-4 md:left-1/2 top-4.5 w-4 h-4 rounded-full bg-green-500 transform -translate-x-1/2 border-4 border-[#2596be] z-10"></div>
           <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} flex`}>
             <div className="p-6 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center text-center w-full h-full border border-gray-300 bg-white/70 hover:bg-green-50 transition-all duration-300">
               <h3 className="text-xl font-extrabold mt-1 text-gray-900 px-3 py-1 inline-block rounded-md bg-green-100">{item.role}</h3>
@@ -430,7 +428,7 @@ export default function Home() {
           <div className="hidden md:flex md:w-1/2 px-10">
             <div className="p-6 text-green-600 w-[70%] text-center">
               <div className="flex flex-col items-center">
-                <div className="relative w-full h-0.5 bg-gradient-to-r from-white via-green-400 to-blue-500 rounded-full">
+                <div className="relative w-full h-0.5 bg-gradient-to-r from-white via-green-400 to-[#2596be] rounded-full">
                   <div className="absolute -top-3.5 left-0 text-3xl font-bold transform -translate-y-1">{item.period.split(' – ')[0]}</div>
                   <div className="absolute -bottom-8 right-0 text-sm font-semibold opacity-75 transform -translate-y-1">{item.period.split(' – ')[1] || 'Present'}</div>
                 </div>
@@ -541,7 +539,7 @@ export default function Home() {
 
           <div className="flex gap-4 mt-auto">
             {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#2596be] hover:underline text-sm">
                 Live Demo →
               </a>
             )}
@@ -814,7 +812,7 @@ export default function Home() {
             }}
           >
             <span
-              className={`absolute bottom-green-600/70 h-full bg-green-600/70 rounded-full transition-all duration-500 ease-in-out z-30`}
+              className={`absolute bottom-[#3fb32e]/70 h-full bg-green-600/70 rounded-full transition-all duration-500 ease-in-out z-30`}
               style={{
                 width: activeIndicator.width,
                 left: activeIndicator.left,
