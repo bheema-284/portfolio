@@ -38,7 +38,7 @@ export const pageData = {
             "JIRA, Git, Bitbucket, Figma, Postman",
             "OTT Platforms | Real Estate CRM | Enterprise Dashboards"
         ],
-        resume: "https://drive.google.com/file/d/1F6FeLYaqr8Qhx0pNJy-bWGv3T7PSC3ae/view?usp=sharing",
+        resume: "https://drive.google.com/file/d/1rXk4hwM5mX_a3pwod-lY9l0LTtifovsq/view?usp=sharing",
         imageUrl: "/images/pic.jpeg",
     },
     skills: {
