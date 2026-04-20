@@ -57,7 +57,7 @@ export const pageData = {
         timeline: [
             {
                 role: "Senior Software Developer",
-                company: "Real Beez Project Pvt Ltd",
+                company: "Real Beez Projects Pvt Ltd",
                 period: "Sept 2025 – Present",
                 location: "Hyderabad",
                 description: "Leading frontend development for real estate CRM and dashboard products. Building scalable React/Next.js applications with role-based access, integrating RESTful APIs, optimizing performance.",

@@ -391,7 +391,7 @@ export default function Home() {
           <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} flex`}>
             <div className="p-6 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center text-center w-full h-full border border-gray-300 bg-white/70 hover:bg-green-50 transition-all duration-300">
               <h3 className="text-xl font-extrabold mt-1 text-gray-900 px-3 py-1 inline-block rounded-md bg-green-100">{item.role}</h3>
-              <p className="text-gray-600 font-medium mt-1">{item.company} | {item.location}</p>
+              <p className="text-gray-600 font-medium mt-1">{item.company} | <span className="text-gray-500">{item.location}</span></p>
               <p className="mt-2 text-gray-800">{item.description}</p>
               {/* Highlight business impact */}
               {item.company === "Travelxp India Private Limited" && (
