@@ -876,7 +876,7 @@ export default function Home() {
               <Lightbulb className="w-8 h-8 text-green-600" /> {pageData.stats.title}
               <span className="absolute -bottom-1 left-0 w-full h-0.5 rounded-full bg-gradient-to-r from-green-400 via-green-300 to-gray-400"></span>
             </h2>
-            <p className="text-gray-600 mt-2 text-center max-w-2xl">Measurable impact across 4+ years of full‑stack leadership</p>
+            <p className="text-gray-600 mt-2 text-center max-w-2xl">Measurable impact across 3.5+ years of full‑stack leadership</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {pageData.stats.items.map((stat, index) => {
