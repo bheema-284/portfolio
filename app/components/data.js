@@ -27,9 +27,7 @@ export const pageData = {
     },
     about: {
         title: "About Me",
-        description: "I'm a results-driven Senior Software Developer with 3.5+ years of experience in building performant, scalable user interfaces using React.js, Next.js, and React Native. Currently leading frontend development at Real Beez Project Pvt Ltd (Hyderabad).",
-        description1: "Previously at Travelxp.com (Mumbai), I built OTT platforms with video playback, subscription systems, booking engines, and program detail pages. I've also developed cross-platform mobile apps and Android TV apps using React Native.",
-        description2: "My domain expertise spans CRM, CMS, Real Estate job portals, property listing with hierarchy approvals, and enterprise dashboards. I'm a problem solver, team player, and continuous learner.",
+        description: "Results-driven Senior Software Developer with 3.5+ years of experience building performant, scalable web and mobile applications using React.js, Next.js, React Native, Node.js, MongoDB, and Tailwind CSS. Proven expertise in delivering OTT platforms (video playback, subscriptions, booking engines), real estate portals, CRM/CMS systems, and enterprise dashboards. Currently leading frontend development at Real Beez Projects Pvt Ltd (Hyderabad).",
         highlights: [
             "MERN Stack (React, Node, Express, MongoDB)",
             "Next.js (SSR/SSG) & Tailwind CSS",
@@ -37,8 +35,10 @@ export const pageData = {
             "State Management: Redux, Context API",
             "API Integration & Performance Optimization",
             "Cross-browser Testing & Responsive Design",
-            "JIRA, Git, Bitbucket, Figma"
+            "JIRA, Git, Bitbucket, Figma, Postman",
+            "OTT Platforms | Real Estate CRM | Enterprise Dashboards"
         ],
+        resume: "https://drive.google.com/file/d/1F6FeLYaqr8Qhx0pNJy-bWGv3T7PSC3ae/view?usp=sharing",
         imageUrl: "/images/pic.jpeg",
     },
     skills: {

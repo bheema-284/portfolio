@@ -34,7 +34,7 @@ const GlowCard = ({ children, className = "", fixedHeight = false }) => {
   const colors = isDarkTheme ? glowColors.dark : glowColors.light;
 
   return (
-    <div className={`relative cursor-pointer ${fixedHeight ? 'h-full' : ''} ${className}`}
+    <div className={`z-20 relative cursor-pointer ${fixedHeight ? 'h-full' : ''} ${className}`}
       onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className={`absolute bg-green-100 -inset-2 rounded-2xl pointer-events-none ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
         style={{ background: `radial-gradient(circle at center, ${colors.primary} 0%, ${colors.secondary} 30%, transparent 70%)`, filter: 'blur(12px)', transition: 'all 0.25s ease-out' }} />
@@ -42,7 +42,7 @@ const GlowCard = ({ children, className = "", fixedHeight = false }) => {
         style={{ background: `radial-gradient(circle at center, ${colors.secondary} 0%, rgba(255,255,255,0.1) 40%, transparent 80%)`, filter: 'blur(16px)', transition: 'all 0.35s ease-out' }} />
       <div className={`absolute -inset-1 rounded-2xl pointer-events-none border-2 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         style={{ borderColor: colors.border, filter: 'blur(1px)', transition: 'all 0.25s ease-out' }} />
-      <div className={`relative text-gray-900 rounded-xl shadow-lg border border-gray-700 overflow-hidden z-10 ${fixedHeight ? 'h-full flex flex-col' : ''}`}>
+      <div className={`relative text-gray-900 rounded-xl shadow-lg border border-green-300 overflow-hidden z-10 ${fixedHeight ? 'h-full flex flex-col' : ''}`}>
         {children}
       </div>
     </div>
@@ -263,14 +263,13 @@ export default function Home() {
 
   // -------------------- Render Functions for each section --------------------
   const renderAboutSection = () => {
-    // Optional: import from lucide-react or use inline icons
     const { about } = pageData;
 
     return (
       <div className="space-y-10">
         {/* Two-column layout */}
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left column: CEO narrative */}
+          {/* Left column: narrative */}
           <div className="space-y-6">
             {/* Tagline / role */}
             <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
@@ -282,31 +281,30 @@ export default function Home() {
               Engineering high-impact <span className="text-emerald-600">digital products</span> that drive business growth
             </h2>
 
-            <p className="text-gray-600 text-lg leading-relaxed">
-              {about.description}
-            </p>
+            {/* Main description + two additional paragraphs */}
+            <p className="text-gray-600 text-lg leading-relaxed">{about.description}</p>
 
             {/* Metrics row (impact numbers) */}
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="border-l-4 border-emerald-500 pl-4">
-                <div className="text-2xl font-bold text-gray-900">3+</div>
-                <div className="text-sm text-gray-500">Production Projects</div>
+                <div className="text-2xl font-bold text-gray-900">10K+</div>
+                <div className="text-sm text-gray-500">Monthly Active Users</div>
               </div>
               <div className="border-l-4 border-emerald-500 pl-4">
-                <div className="text-2xl font-bold text-gray-900">3+</div>
-                <div className="text-sm text-gray-500">Enterprise Clients</div>
+                <div className="text-2xl font-bold text-gray-900">40%</div>
+                <div className="text-sm text-gray-500">Performance Gain</div>
               </div>
               <div className="border-l-4 border-emerald-500 pl-4">
-                <div className="text-2xl font-bold text-gray-900">OTT & CRM</div>
-                <div className="text-sm text-gray-500">Domain Expertise</div>
+                <div className="text-2xl font-bold text-gray-900">30+</div>
+                <div className="text-sm text-gray-500">Reusable Components</div>
               </div>
               <div className="border-l-4 border-emerald-500 pl-4">
-                <div className="text-2xl font-bold text-gray-900">100%</div>
-                <div className="text-sm text-gray-500">Client Satisfaction</div>
+                <div className="text-2xl font-bold text-gray-900">15+</div>
+                <div className="text-sm text-gray-500">API Integrations</div>
               </div>
             </div>
 
-            {/* Mission / vision statement */}
+            {/* Mission statement */}
             <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
               <p className="text-gray-700 italic">
                 “I build scalable, user-centric web & mobile solutions that turn complex requirements into seamless experiences.
@@ -315,13 +313,13 @@ export default function Home() {
               <p className="text-emerald-600 font-semibold mt-2">— Bheemudu Guguloth</p>
             </div>
 
-            {/* Core competencies as a grid */}
+            {/* Core strengths (all highlights) */}
             <div>
               <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                 <Target size={20} className="text-emerald-600" /> Core strengths
               </h3>
               <ul className="grid grid-cols-2 gap-3">
-                {about.highlights.slice(0, 6).map((highlight, idx) => (
+                {about.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-gray-700">
                     <span className="text-emerald-500 text-lg">▹</span>
                     <span className="text-sm">{highlight}</span>
@@ -330,25 +328,43 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* CTA for hiring */}
-            <div className="pt-4">
+            {/* CTA buttons: Contact + Resume */}
+            <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md"
               >
-                Let&apos;s build something great <span>→</span>
+                Let's build something great <span>→</span>
               </a>
+              {about.resume && (() => {
+                // Extract Google Drive file ID from the URL
+                const driveFileId = about.resume.match(/\/d\/([a-zA-Z0-9_-]+)/)?.[1];
+                const directDownloadLink = driveFileId
+                  ? `https://drive.google.com/uc?export=download&id=${driveFileId}`
+                  : about.resume;
+
+                return (
+                  <a
+                    href={directDownloadLink}
+                    download
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white border border-emerald-600 text-emerald-700 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-sm"
+                    onClick={() => { }}
+                  >
+                    Download Resume
+                  </a>
+                );
+              })()}
             </div>
           </div>
 
-          {/* Right column: Professional image + overlay */}
+          {/* Right column: Professional image */}
           <div className="relative w-full h-[30rem] sm:h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <img
               src={about.imageUrl}
               alt="Bheemudu Guguloth – MERN Stack Developer"
               className="w-full h-full object-cover object-top transition-all duration-500 hover:scale-105"
             />
-            {/* Optional: subtle gradient overlay for text readability if needed */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
@@ -384,10 +400,10 @@ export default function Home() {
 
   const renderExpSection = () => (
     <div className="relative w-full mx-auto">
-      <div className="absolute hidden sm:block left-4 md:left-1/2 top-0 h-full w-0.5 bg-green-700 transform -translate-x-1/2"></div>
+      <div className="absolute hidden sm:block left-4 md:left-1/2 top-0 h-full w-0.5 bg-green-700/80 transform -translate-x-1/2"></div>
       {pageData.experience.timeline.map((item, index) => (
         <div key={index} className={`mb-12 relative flex items-stretch ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-          <div className="absolute hidden sm:block left-4 md:left-1/2 top-4.5 w-4 h-4 rounded-full bg-green-500 transform -translate-x-1/2 border-4 border-gray-600 z-10"></div>
+          <div className="absolute hidden sm:block left-4 md:left-1/2 top-4.5 w-4 h-4 rounded-full bg-green-500 transform -translate-x-1/2 border-4 border-blue-500/60 z-10"></div>
           <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} flex`}>
             <div className="p-6 backdrop-blur-sm rounded-lg flex flex-col items-center justify-center text-center w-full h-full border border-gray-300 bg-white/70 hover:bg-green-50 transition-all duration-300">
               <h3 className="text-xl font-extrabold mt-1 text-gray-900 px-3 py-1 inline-block rounded-md bg-green-100">{item.role}</h3>
@@ -414,7 +430,7 @@ export default function Home() {
           <div className="hidden md:flex md:w-1/2 px-10">
             <div className="p-6 text-green-600 w-[70%] text-center">
               <div className="flex flex-col items-center">
-                <div className="relative w-full h-0.5 bg-gradient-to-r from-white via-green-400 to-blue-700 rounded-full">
+                <div className="relative w-full h-0.5 bg-gradient-to-r from-white via-green-400 to-blue-500 rounded-full">
                   <div className="absolute -top-3.5 left-0 text-3xl font-bold transform -translate-y-1">{item.period.split(' – ')[0]}</div>
                   <div className="absolute -bottom-8 right-0 text-sm font-semibold opacity-75 transform -translate-y-1">{item.period.split(' – ')[1] || 'Present'}</div>
                 </div>
@@ -440,7 +456,7 @@ export default function Home() {
             <GlowCard key={index} className="h-full" fixedHeight={true}>
               <div className="p-6 h-full flex flex-col">
                 <div className="flex items-center mb-4">
-                  <div className="h-16 w-16 mr-4 rounded-lg bg-gray-100 flex items-center justify-center">
+                  <div className="h-16 w-16 mr-4 border border-gray-50 rounded-lg bg-gray-100 flex items-center justify-center">
                     <IconComponent size={50} />
                   </div>
                   <div>
@@ -593,7 +609,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8">
           <GlowCard className="h-full" fixedHeight={true}>
             <div className="p-6 h-full flex flex-col backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 flex items-center gap-2">🎓 Education</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 flex items-center gap-2">Education</h3>
               <div className="space-y-4 flex-grow">
                 {pageData.education.items.map((item, index) => (
                   <div key={index} className="mb-4 last:mb-0 border-l-2 border-green-300 pl-4">
@@ -712,7 +728,7 @@ export default function Home() {
     };
 
     return (
-      <div className="p-4 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <div className="p-4 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden rounded-lg">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-20" />
         </div>
