@@ -340,10 +340,10 @@ export default function Home() {
         </div>
 
         {/* Buttons container - right side on desktop with flex direction row */}
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8">
           <a
             href="#contact"
-            className="w-full inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md"
+            className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-700 transition shadow-md"
           >
             Let's build something great
           </a>
@@ -359,7 +359,7 @@ export default function Home() {
                 href={directDownloadLink}
                 download
                 rel="noopener noreferrer"
-                className="w-full inline-flex mt-4 sm:mt-0 items-center gap-2 bg-white border border-emerald-600 text-emerald-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-sm"
+                className="inline-flex items-center gap-2 bg-white border border-emerald-600 text-emerald-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-50 transition shadow-sm"
               >
                 Download Resume
               </a>

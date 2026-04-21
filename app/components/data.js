@@ -69,8 +69,21 @@ export const pageData = {
                 company: "Travelxp India Private Limited",
                 period: "Aug 2022 – March 2025",
                 location: "Mumbai",
-                description: "Developed interactive UIs for web and Android TV apps using React.js, Next.js, React Native. Integrated APIs, optimized performance, built reusable components, cross-browser testing.",
-                achievements: ["React.js", "Next.js", "React Native", "OTT Platforms", "Jira", "Performance Optimization"],
+                description: "Developed and optimized frontend solutions across multiple platforms including CMS/CRM, B2C website (Travelxp), Android TV app, and mobile app (React Native). Built reusable component libraries, improved code efficiency, and ensured timely delivery. Used prop drilling and Context API for state management, integrated REST APIs, and collaborated with cross-functional teams.",
+                achievements: [
+                    "React.js",
+                    "Next.js",
+                    "React Native",
+                    "Node.js",
+                    "MongoDB",
+                    "Tailwind CSS",
+                    "Context API",
+                    "Code Optimization",
+                    "Reusable Components",
+                    "CMS/CRM Integration",
+                    "OTT & TV App Development",
+                    "Cross-Functional Delivery"
+                ],
                 award: "",
             },
             {
@@ -113,32 +126,32 @@ export const pageData = {
                 image: "/images/alpharealty.png"
             },
             {
-                title: "Fun Quiz App",
-                description: "Interactive quiz game with multiple-choice questions, scoring logic, final score summary, answer validation, and restart option. Clean responsive UI.",
-                tech: ["React", "Tailwind CSS"],
-                link: "https://main--timely-gnome-b21044.netlify.app/",
-                github: "https://github.com/bheema-284/fun-quiz-app",
-                image: "/images/funquiz.png"
+                "title": "Caterly Dude – Multi-Role Catering & Delivery Platform",
+                "description": "Perfect for small events – catering for members with customizable menus. Supports Weddings, Birthdays, Corporate events, Engagements, Family Get‑Togethers, and Housewarming. Built with role‑based dashboards for users, delivery partners, caterers, and waiters, including order tracking, push notifications, and earnings tracking.",
+                "tech": ["Next.js", "Node.js", "MongoDB", "Tailwind CSS", "Socket.io", "Push Notifications"],
+                "link": "https://caterly-brown.vercel.app/",
+                "github": "https://github.com/bheema-284/caterly",
+                "image": "/images/caterlydude.png"
             },
             {
                 title: "Real Beez – Real Estate CRM",
-                description: "Enterprise CRM for real estate agents with lead management, property tracking, analytics dashboards, and role-based access.",
-                tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+                description: "Full-stack enterprise CRM for real estate agents. I built the frontend, backend, database, and server. Implemented a complete CMS/CRM system, the main website, and partial Flutter mobile app (home page).",
+                tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind", "Flutter"],
                 link: "https://deal-beez.com",
                 github: "https://github.com/bheema-284/realbeez",
                 image: "/images/realbeez.png"
             },
             {
                 title: "Sales Beez – Sales Dashboard",
-                description: "Sales performance dashboard for managers and admins with real-time charts, reporting, and approval workflows.",
-                tech: ["Next.js", "Chart.js", "Node.js", "PostgreSQL"],
+                description: "Full-stack sales performance platform with Google login + email/password auth. Users can connect their Google account after normal login. Built like an e-commerce site with backend dashboard and hierarchical product approval system – admins can add products, only super admin can approve them.",
+                tech: ["Next.js", "Chart.js", "Node.js", "PostgreSQL", "Google OAuth"],
                 link: "https://sales.real-beez.com/",
                 github: "https://github.com/bheema-284/salesbeez",
                 image: "/images/salesbeez.png"
             },
             {
                 title: "HR Dashboard (Admin / Manager / Employee)",
-                description: "Role-based HR portal with leave management, payroll, employee directory, and performance reviews. Three distinct dashboards.",
+                description: "Role-based HR portal with three distinct dashboards. Employees can mark daily attendance, request leave or Attendance Regularization (AR), cancel requests. Managers approve/reject. Super admin has full access. Includes leave management, payroll, employee directory, and performance reviews.",
                 tech: ["React", "Redux Toolkit", "Node.js", "MongoDB", "Tailwind"],
                 link: "https://employer.real-beez.com/",
                 github: "https://github.com/bheema-284/realbeez",
@@ -149,9 +162,11 @@ export const pageData = {
     education: {
         title: "Education & Credentials",
         items: [
-            { degree: "Full-Stack Development", institution: "Masai School, Bangalore", period: "2021 – 2022", achievement: "MERN Stack Certification" },
-            { degree: "Bachelor of Civil Engineering", institution: "BGTI, Hyderabad", period: "2016 – 2020", achievement: "First Class" },
-            { degree: "Finishing School Programme", institution: "NAC, Hyderabad", period: "2019", achievement: "Engineer" }
+            { degree: "Full-Stack Development", institution: "Masai School, Bangalore", period: "Oct 2021 – July 2022", achievement: "MERN Stack Certification" },
+            { degree: "Finishing School Program", institution: "NAC, Hyderabad", period: "Oct 2019 – Dec 2019 ", achievement: "Engineer" },
+            { degree: "Bachelor of Civil Engineering", institution: "BGTI, Hyderabad", period: "Sept 2013 – June 2017", achievement: "First Class" },
+            { degree: "Intermediate", institution: "Thorrur, Mahabuababd", period: "June 2011 – June 2013", achievement: "First Class" },
+            { degree: "SSC", institution: "Nellikudur, Mahabubabad", period: "June 2010 – June 2011", achievement: "First Class" }
         ],
         awards: [
             "Recognized for best performance in React.js at Masai School",
