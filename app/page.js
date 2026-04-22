@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, createRef, useContext } from "react";
-import { User, Mail, BarChart3, Plane, Award, Target, Lightbulb, FolderGit2, Star, ArrowRight } from 'lucide-react';
+import { User, Mail, BarChart3, Plane, Award, Target, Lightbulb, FolderGit2, Star, ArrowRight, ArrowBigRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import Loader from "./components/loader";
@@ -152,7 +152,7 @@ export default function Home() {
     setTimeout(() => {
       const element = sectionRefs.current[sectionId]?.current;
       if (element) {
-        const headerOffset = 136; // 80px (fixed header) + 56px (sticky tabs)
+        const headerOffset = 110; // 80px (fixed header) + 56px (sticky tabs)
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - headerOffset;
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -177,7 +177,7 @@ export default function Home() {
       clearTimeout(scrollTimeoutRef.current);
       scrollTimeoutRef.current = setTimeout(() => {
         const viewportHeight = window.innerHeight;
-        const scrollPosition = window.scrollY + 136;
+        const scrollPosition = window.scrollY + 110;
         let currentSection = null;
         let minDistance = Infinity;
 
@@ -188,8 +188,8 @@ export default function Home() {
             const elementMiddle = offsetTop + (offsetHeight / 2);
             const distanceToMiddle = Math.abs(scrollPosition - elementMiddle);
             const isInViewport = (
-              (offsetTop <= scrollPosition + viewportHeight - 50) &&
-              (offsetTop + offsetHeight >= scrollPosition + 50)
+              (offsetTop <= scrollPosition + viewportHeight - 35) &&
+              (offsetTop + offsetHeight >= scrollPosition + 35)
             );
             if (isInViewport && distanceToMiddle < minDistance) {
               minDistance = distanceToMiddle;
@@ -322,7 +322,7 @@ export default function Home() {
             “I build scalable, user-centric web & mobile solutions that turn complex requirements into seamless experiences.
             My focus is on clean architecture, performance, and measurable ROI.”
           </p>
-          <p className="text-emerald-600 font-semibold mt-2">— Bheemudu Guguloth</p>
+          <p className="text-emerald-600 text-right font-semibold mt-2">— Bheemudu Guguloth</p>
         </div>
         {/* Core strengths - left side on desktop */}
         <div className="flex-1">
@@ -332,7 +332,7 @@ export default function Home() {
           <ul className="grid grid-cols-2 gap-3">
             {about.highlights.map((highlight, idx) => (
               <li key={idx} className="flex items-center gap-2 text-gray-700">
-                <span className="text-emerald-500 text-md sm:text-lg"><ArrowRight size={20} className="text-emerald-600"/></span>
+                <span className="text-emerald-500 text-md sm:text-lg"><ArrowBigRight size={20} className="text-emerald-600"/></span>
                 <span className="text-xs sm:text-sm">{highlight}</span>
               </li>
             ))}
@@ -373,7 +373,7 @@ export default function Home() {
   const renderSkillsSection = () => (
     <div>
       <div className="text-center mb-10">
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+        <p className="text-gray-600 text-md text-left sm:text-center sm:text-lg w-full sm:max-w-3xl sm:mx-auto">
           I architect end‑to‑end digital solutions — from high‑performance React frontends to scalable Node.js backends,
           cross‑platform mobile apps (React Native, Flutter), and cloud‑ready databases.
         </p>
@@ -597,7 +597,7 @@ export default function Home() {
   );
 
   const renderEducationSection = () => (
-    <div className="py-5 relative overflow-hidden">
+    <div className="relative overflow-hidden">
       <div className="w-full mx-auto">
         <div className="text-center mb-8">
           <p className="text-gray-600 w-full mx-auto">
@@ -912,7 +912,7 @@ export default function Home() {
             key={section.id}
             id={section.id}
             ref={sectionRefs.current[section.id]}
-            className="scroll-mt-36 py-12 relative overflow-hidden"
+            className="scroll-mt-24 py-12 relative overflow-hidden"
           >
             <div className="w-[80%] mx-auto">
               <div className="mb-10 relative">
