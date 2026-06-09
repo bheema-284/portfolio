@@ -39,7 +39,7 @@ export const pageData = {
             "OTT Platforms | Real Estate CRM | Enterprise Dashboards"
         ],
         resume: "https://drive.google.com/file/d/1rXk4hwM5mX_a3pwod-lY9l0LTtifovsq/view?usp=sharing",
-        imageUrl: "/images/pic.jpeg",
+        imageUrl: "/images/bheema1.jpeg",
     },
     skills: {
         title: "Core Competencies",
